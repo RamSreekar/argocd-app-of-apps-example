@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/RamSreekar/argocd-app-of-apps-example.git'
     targetRevision: HEAD
-    path: environments/dev
+    path: environments/dev/grafana
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
