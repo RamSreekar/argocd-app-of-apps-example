@@ -9,10 +9,11 @@ spec:
     chart: grafana
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 8.4.1
+    path: grafana
 
     helm:
       valueFiles: 
-        - values/grafana-values.yaml
+        - values.yaml
         
   destination:
     server: https://kubernetes.default.svc
