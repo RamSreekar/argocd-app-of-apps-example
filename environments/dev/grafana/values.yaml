@@ -1,0 +1,13 @@
+adminPassword: amdin
+
+replicas: 1
+
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      url: http://kube-prom-stack-kube-prome-prometheus.kube-prom-stack.svc.cluster.local:9090
+      access: proxy
+      isDefault: true
