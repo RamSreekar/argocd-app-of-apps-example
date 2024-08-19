@@ -9,7 +9,7 @@ spec:
     chart: grafana
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 8.4.1
-    path: ../environments/dev/grafana
+    path: grafana
 
     helm:
       valueFiles: 
