@@ -8,7 +8,7 @@ spec:
   source:
     chart: grafana
     repoURL: https://github.com/RamSreekar/argocd-app-of-apps-example.git # https://grafana.github.io/helm-charts
-    targetRevision: HEAD # 8.4.1
+    targetRevision: main # 8.4.1
     path: grafana
 
     helm:
