@@ -8,14 +8,14 @@ spec:
   source:
     chart: grafana
     repoURL: https://github.com/RamSreekar/argocd-app-of-apps-example.git # https://grafana.github.io/helm-charts
-    targetRevision: 8.4.1
+    targetRevision: HEAD # 8.4.1
     path: grafana
 
     helm:
-      # valueFiles: 
-      #   - values.yaml
-      valuesObject:
-        replicas: 2 
+      valueFiles: 
+        - values.yaml
+      # valuesObject:
+      #   replicas: 2 
         
   destination:
     server: https://kubernetes.default.svc
