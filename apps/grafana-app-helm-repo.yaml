@@ -12,7 +12,7 @@ spec:
 
     helm:
       valueFiles: 
-        - values/grafana-values.yaml
+        - grafana-local-values.yaml
         
   destination:
     server: https://kubernetes.default.svc
