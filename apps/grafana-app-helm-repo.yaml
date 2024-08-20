@@ -5,15 +5,21 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    chart: grafana
-    repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 8.4.1
+  sources: # 'sources' instead of source for specifying multiple sources.
+    # Chart from chart repo
+    - chart: grafana
+      repoURL: https://grafana.github.io/helm-charts
+      targetRevision: 8.4.1
 
-    helm:
-      valueFiles: 
-        - grafana-local-values.yaml
-        
+      helm:
+        valueFiles: 
+          - $values/grafana-local-values.yaml
+
+    # Values from git
+    - repoURL: https://github.com/RamSreekar/argocd-app-of-apps-example.git
+      targetRevision: HEAD
+      ref: values  
+          
   destination:
     server: https://kubernetes.default.svc
     namespace: grafana
