@@ -13,7 +13,7 @@ spec:
 
       helm:
         valueFiles: 
-          - $values/grafana-local-values.yaml
+          - $values/grafana-values.yaml
 
     # Values from git
     - repoURL: https://github.com/RamSreekar/argocd-app-of-apps-example.git
