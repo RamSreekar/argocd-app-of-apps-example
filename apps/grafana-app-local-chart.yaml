@@ -9,7 +9,7 @@
 #     # chart: grafana
 #     repoURL: https://github.com/RamSreekar/argocd-app-of-apps-example.git # https://grafana.github.io/helm-charts
 #     targetRevision: HEAD
-#     path: environments/dev/grafana # grafana
+#     path: /grafana # environments/dev/grafana
 
 #     helm:
 #       valueFiles: 
