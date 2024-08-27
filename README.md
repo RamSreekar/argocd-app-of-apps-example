@@ -7,48 +7,29 @@ This repository follows the Argo CD App of Apps pattern to manage deployment of 
 my-argocd-project/
 ├── root-app.yaml
 ├── README.md
-├── environments/
-│ ├── dev/
-│ │ ├── app1/
-│ │ │ ├── app1.yaml
-│ │ │ ├── values.yaml
-│ │ ├── app2/
-│ │ │ ├── app2.yaml
-│ │ │ ├── values.yaml
-│ │ ├── app3/
-│ │ │ ├── app3.yaml
-│ │ │ ├── values.yaml
-│ ├── staging/
-│ │ ├── app1/
-│ │ │ ├── app1.yaml
-│ │ │ ├── values.yaml
-│ │ ├── app2/
-│ │ │ ├── app2.yaml
-│ │ │ ├── values.yaml
-│ │ ├── app3/
-│ │ │ ├── app3.yaml
-│ │ │ ├── values.yaml
-│ └── production/
-│ ├── app1/
+├── apps/
+│ ├── app1.yaml
+│ ├── app2.yaml
 │ │ ├── app1.yaml
-│ │ ├── values.yaml
-│ ├── app2/
-│ │ ├── app2.yaml
-│ │ ├── values.yaml
-│ ├── app3/
-│ │ ├── app3.yaml
-│ │ ├── values.yaml
+| |
+├── values/
+| ├──app-1
+|   |── app1-dev-values.yaml
+|   |── app1-staging-values.yaml
+|   |── app1-prod-values.yaml
+| |
+| ├──app-2
+|   |── app2-dev-values.yaml
+|   |── app2-staging-values.yaml
+|   |── app2-prod-values.yaml
 ```
 
 ### Explanation
 
 - **README.md:** General documentation about the repository structure and guidelines.
 - **environments/:** Contains directories for each environment (`dev`, `staging`, `production`).
-  - **dev/, staging/, production/:** Each environment directory contains subdirectories for the applications.
-    - **app1/, app2/, app3/:** Each application has its own directory.
-      - **app1.yaml, app2.yaml, app3.yaml:** Argo CD Application resource definitions for managing the Helm releases.
-      - **values.yaml:** Values file for the Helm chart specific to this application and environment.
-
+- **app1.yaml, app2.yaml, app3.yaml:** Argo CD Application resource definitions for managing the Helm releases.
+- **values.yaml:** Values file for the Helm chart specific to this application and environment.
 - **root-app.yaml:** The root Argo CD Application manifest following the App of Apps pattern.
 
 ### Example Root Application Manifest (`root-app.yaml`)
@@ -73,7 +54,7 @@ spec:
       selfHeal: true
 ```
 
-### Example Child Application Manifest (`environments/dev/app1/app1.yaml`)
+### Example Child Application Manifest (`/apps/app1.yaml`)
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -99,7 +80,7 @@ spec:
       prune: true
 ```
 
-### Example Values File (`environments/dev/app1/values.yaml`)
+### Example Values File (`/values/myapp/values.yaml`)
 
 ```yaml
 replicaCount: 1
